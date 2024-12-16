@@ -1,7 +1,16 @@
-﻿namespace polygons.Models;
+﻿using Avalonia.Media;
 
-public class square
+namespace polygons.Models;
+
+class square: shape 
 {
-    public int radius { get; set; }
-    public string color { get; set; }
+    public square(int x, int y) : base(x, y)
+    {
+        
+    }
+    
+    public override void Draw(DrawingContext dc)
+    {
+        
+    }
 }

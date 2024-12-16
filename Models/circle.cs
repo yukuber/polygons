@@ -1,9 +1,18 @@
-﻿using System.Linq.Expressions;
+﻿using Avalonia.Media;
+using System;
+using Avalonia;
 
 namespace polygons.Models;
-using System;
-public class circle
+
+class circle : shape
 {
-    public int radius { get; set; }
-    public string color { get; set; }
+    public circle(int x, int y) : base(x, y)
+    {
+
+    }
+
+    public override void Draw(DrawingContext dc)
+    {
+        
+    }
 }

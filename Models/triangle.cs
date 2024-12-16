@@ -1,7 +1,16 @@
-﻿namespace polygons.Models;
+﻿using Avalonia.Media;
+using Avalonia.Controls.Shapes;
 
-public class triangle
+namespace polygons.Models;
+
+public class triangle : shape
 {
-    public int radius { get; set; }
-    public string color { get; set; }
+    public triangle(int x, int y) : base(x, y)
+    {
+        
+    }
+    public override void Draw(DrawingContext dc)
+    {
+        
+    }
 }
