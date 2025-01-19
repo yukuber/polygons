@@ -5,10 +5,10 @@ using Avalonia.Controls.Shapes;
 
 namespace polygons.Models;
 
-public class Triangle(int x, int y) : shape(x, y)
+public class Triangle(int x, int y) : Shape(x, y)
 {
     private Point _tpoint1, _tpoint2, _tpoint3;
-    private static double Area => radius * radius * 0.25 * 3 * Math.Sqrt(3);
+    private static double Area => Radius * Radius * 0.25 * 3 * Math.Sqrt(3);
 
 
     public override void Draw(DrawingContext dc)
@@ -16,9 +16,9 @@ public class Triangle(int x, int y) : shape(x, y)
         Brush brush = new SolidColorBrush(Colors.Fuchsia);
         Pen pen = new Pen(brush, lineCap: PenLineCap.Square);
 
-        _tpoint1 = new Point(x, y - radius);
-        _tpoint2 = new Point(x - radius * (float)Math.Sqrt(3) / 2, y + (float)radius / 2);
-        _tpoint3 = new Point(x + radius * (float)Math.Sqrt(3) / 2, y + (float)radius / 2);
+        _tpoint1 = new Point(x, y - Radius);
+        _tpoint2 = new Point(x - Radius * (float)Math.Sqrt(3) / 2, y + (float)Radius / 2);
+        _tpoint3 = new Point(x + Radius * (float)Math.Sqrt(3) / 2, y + (float)Radius / 2);
 
         dc.DrawLine(pen, _tpoint1, _tpoint2);
         dc.DrawLine(pen, _tpoint2, _tpoint3);

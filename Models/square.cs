@@ -4,10 +4,10 @@ using Avalonia.Media;
 
 namespace polygons.Models;
 
-public sealed class Square : shape
+public sealed class Square : Shape
 {
     private Point _point1, _point2, _point3, _point4;
-    private static float InnerRadius => radius / (float)Math.Sqrt(2);
+    private static float InnerRadius => Radius / (float)Math.Sqrt(2);
     public Square(int x, int y) : base(x, y) { }
 
     public override bool IsInside(int newX, int newY)

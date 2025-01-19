@@ -14,7 +14,7 @@ public class CustomControl : UserControl
     private int _cx, _cy;
     private int _shapeType;
 
-    private List<shape> _shapes = [];
+    private List<Shape> _shapes = [];
     
     public override void Render(DrawingContext dc)
     {
