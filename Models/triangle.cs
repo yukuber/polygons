@@ -5,29 +5,24 @@ using Avalonia.Controls.Shapes;
 
 namespace polygons.Models;
 
-public class Triangle : shape
+public class Triangle(int x, int y) : shape(x, y)
 {
-    private Point Tpoint1, Tpoint2, Tpoint3;
+    private Point _tpoint1, _tpoint2, _tpoint3;
     private static double Area => radius * radius * 0.25 * 3 * Math.Sqrt(3);
-
-
-    public Triangle(int x, int y) : base(x, y)
-    {
-    }
 
 
     public override void Draw(DrawingContext dc)
     {
-        Brush brush = new SolidColorBrush(Colors.Navy);
-        Pen pen = new Pen(Brushes.Teal, 1, lineCap: PenLineCap.Square);
+        Brush brush = new SolidColorBrush(Colors.Fuchsia);
+        Pen pen = new Pen(brush, lineCap: PenLineCap.Square);
 
-        Tpoint1 = new Point(x, y - radius);
-        Tpoint2 = new Point(x - radius * (float)Math.Sqrt(3) / 2, y + (float)radius / 2);
-        Tpoint3 = new Point(x + radius * (float)Math.Sqrt(3) / 2, y + (float)radius / 2);
+        _tpoint1 = new Point(x, y - radius);
+        _tpoint2 = new Point(x - radius * (float)Math.Sqrt(3) / 2, y + (float)radius / 2);
+        _tpoint3 = new Point(x + radius * (float)Math.Sqrt(3) / 2, y + (float)radius / 2);
 
-        dc.DrawLine(pen, Tpoint1, Tpoint2);
-        dc.DrawLine(pen, Tpoint2, Tpoint3);
-        dc.DrawLine(pen, Tpoint3, Tpoint1);
+        dc.DrawLine(pen, _tpoint1, _tpoint2);
+        dc.DrawLine(pen, _tpoint2, _tpoint3);
+        dc.DrawLine(pen, _tpoint3, _tpoint1);
         Console.WriteLine("drawing");
     }
 
@@ -43,8 +38,8 @@ public class Triangle : shape
     public override bool IsInside(int nx, int ny)
     {
         var pointClick = new Point(nx, ny);
-        return Math.Abs(Area - HeronFormula(Tpoint1, Tpoint2, pointClick)
-                             - HeronFormula(Tpoint1, Tpoint3, pointClick)
-                             - HeronFormula(Tpoint2, Tpoint3, pointClick)) <= 0.1;
+        return Math.Abs(Area - HeronFormula(_tpoint1, _tpoint2, pointClick)
+                             - HeronFormula(_tpoint1, _tpoint3, pointClick)
+                             - HeronFormula(_tpoint2, _tpoint3, pointClick)) <= 0.1;
     }
 }

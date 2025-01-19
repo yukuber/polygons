@@ -1,7 +1,5 @@
 using Avalonia.Controls;
 using Avalonia.Input;
-using System;
-using polygons.Models;
 
 namespace polygons.Views;
 
@@ -10,25 +8,43 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
+        Shapes.ItemsSource = new[] { "Circle", "Triangle", "Square" };
+        Shapes.SelectedIndex = 1;
+        
     }
 
     private void InputElement_OnPointerPressed(object sender, PointerPressedEventArgs e)
     {
-        Console.WriteLine("Pointer pressed");
-        CustomControl CC = this.Find<CustomControl>("InputElement");
-        CC.Click((int)e.GetPosition(CC).X, (int)e.GetPosition(CC).Y);
+        CustomControl? cc = this.Find<CustomControl>("Press");
+        
+        var point = e.GetCurrentPoint(sender as CustomControl);
+        
+        if (point.Properties.IsLeftButtonPressed)
+        {
+            cc?.LeftClick((int)e.GetPosition(cc).X, (int)e.GetPosition(cc).Y);
+        }
+        if (point.Properties.IsRightButtonPressed)
+        {
+            cc?.RightClick((int)e.GetPosition(cc).X, (int)e.GetPosition(cc).Y);
+        }
     }
 
-    private void InputElement_OnPointerMoved(object sender, PointerEventArgs e)
+    private void InputElement_OnPointerMoved(object? sender, PointerEventArgs e)
     {
-        Console.WriteLine("Pointer moved");
-        CustomControl CC = this.Find<CustomControl>("InputElement");
-        CC.Move((int)e.GetPosition(CC).X, (int)e.GetPosition(CC).Y);
+        CustomControl? cc = this.Find<CustomControl>("Press");
+        cc?.Move((int)e.GetPosition(cc).X, (int)e.GetPosition(cc).Y);
     }
 
     private void InputElement_OnPointerReleased(object sender, PointerReleasedEventArgs e)
     {
-        CustomControl CC = this.Find<CustomControl>("InputElement");
-        CC.Release((int)e.GetPosition(CC).X, (int)e.GetPosition(CC).Y);
+        CustomControl? cc = this.Find<CustomControl>("Press");
+        cc?.Release((int)e.GetPosition(cc).X, (int)e.GetPosition(cc).Y);
+    }
+    private void Shapes_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        CustomControl? cc = this.Find<CustomControl>("Press");
+
+        int type = Shapes.SelectedIndex;
+        cc?.ChangeType(type);
     }
 }

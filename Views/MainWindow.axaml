@@ -22,6 +22,12 @@
     Поведение объекта:
     -отрисовка 
     -реакции на события -->
-    <polygons:CustomControl/>
-
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="Figure type">
+                <ListBox x:Name="Shapes" SelectionChanged="Shapes_OnSelectionChanged"></ListBox>
+            </MenuItem>
+        </Menu>
+        <polygons:CustomControl Name="Press"></polygons:CustomControl>
+    </DockPanel>
 </Window>

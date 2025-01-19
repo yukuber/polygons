@@ -4,16 +4,15 @@ using Avalonia;
 
 namespace polygons.Models;
 
-class circle : shape
+public sealed class Circle : shape
 {
-    public circle(int x, int y) : base(x, y)
-    {
-    }
+    public Circle(int x, int y) : base(x, y) { }
 
     public override void Draw(DrawingContext dc)
     {
-        Brush brush = new SolidColorBrush(Colors.Navy);
-        Pen pen = new Pen(Brushes.Teal, 1, lineCap: PenLineCap.Square);
+        Brush brush = new SolidColorBrush(Colors.DarkSlateBlue);
+        //Brush brush2 = new SolidColorBrush(color);
+        Pen pen = new Pen(Brushes.Teal, lineCap: PenLineCap.Square);
 
         dc.DrawEllipse(brush, pen, new Point(x, y), radius, radius);
         Console.WriteLine("drawing");

@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using Avalonia.Media.TextFormatting;
+﻿using System.Collections.ObjectModel;
 using polygons.Models;
 
 namespace polygons.ViewModels;
 
-public class MainWindowViewModel : ViewModelBase
-{
-    public MainWindowViewModel()
-    {
-    }
-}
+public class MainWindowViewModel : ViewModelBase;
