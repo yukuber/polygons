@@ -2,7 +2,7 @@
 using Avalonia;
 using Avalonia.Media;
 
-namespace polygons.Models;
+namespace Polygons.Models;
 
 public sealed class Square : Shape
 {
@@ -17,8 +17,8 @@ public sealed class Square : Shape
 
     public override void Draw(DrawingContext context)
     {
-        Brush Brush = new SolidColorBrush(Colors.Aquamarine);
-        Pen pen = new(Brush, 2, lineCap: PenLineCap.Square);
+        Brush brush = new SolidColorBrush(Color);
+        Pen pen = new(brush, lineCap: PenLineCap.Square);
 
         _point1 = new Point(x - InnerRadius, y + InnerRadius);
         _point2 = new Point(x + InnerRadius, y + InnerRadius);

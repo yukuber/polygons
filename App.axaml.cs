@@ -1,10 +1,10 @@
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
-using polygons.ViewModels;
-using polygons.Views;
+using Polygons.ViewModels;
+using Polygons.Views;
 
-namespace polygons;
+namespace Polygons;
 
 public partial class App : Application
 {

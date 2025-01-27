@@ -1,9 +1,9 @@
 using System;
 using Avalonia.Controls;
 using Avalonia.Controls.Templates;
-using polygons.ViewModels;
+using Polygons.ViewModels;
 
-namespace polygons;
+namespace Polygons;
 
 public class ViewLocator : IDataTemplate
 {

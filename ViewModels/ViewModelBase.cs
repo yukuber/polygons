@@ -1,6 +1,6 @@
 ﻿using ReactiveUI;
 
-namespace polygons.ViewModels;
+namespace Polygons.ViewModels;
 
 public class ViewModelBase : ReactiveObject
 {

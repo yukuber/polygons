@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Media;
-using polygons.Models;
+using Polygons.Models;
 
 
-namespace polygons;
+namespace Polygons;
 
 public class CustomControl : UserControl
 {
@@ -34,6 +34,7 @@ public class CustomControl : UserControl
         bool inside = false;
         foreach (var shape in _shapes.Where(shape => shape.IsInside(newX, newY)))
         {
+            
             Console.WriteLine("Click");
             _cx = newX;
             _cy = newY;
@@ -198,9 +199,9 @@ public class CustomControl : UserControl
                     l++;
                 }
 
-                if (upper != lower || (upper == false && lower == false))
+                if (lower==upper != true)
                 {
-                    Brush brush = new SolidColorBrush(Colors.Red);
+                    Brush brush = new SolidColorBrush(Colors.Magenta);
                     Pen pen = new(brush, lineCap: PenLineCap.Square);
                     var point1 = new Point(s1.X, s1.Y);
                     var point2 = new Point(s2.X, s2.Y);
@@ -243,7 +244,7 @@ public class CustomControl : UserControl
                 int l = 0;
                 bool upper = false, lower = false;
                 double k = (double)(s2.Y - s1.Y) / (s2.X - s1.X);
-                double b = s2.Y - k * s2.X;
+                double b = s1.Y - k * s2.X;
                 foreach (var s3 in _shapes)
                 {
                     if (l != i && l != j)

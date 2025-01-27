@@ -2,7 +2,7 @@
 using System;
 using Avalonia;
 
-namespace polygons.Models;
+namespace Polygons.Models;
 
 public sealed class Circle : Shape
 {
@@ -10,7 +10,7 @@ public sealed class Circle : Shape
 
     public override void Draw(DrawingContext dc)
     {
-        Brush brush = new SolidColorBrush(Colors.DarkSlateBlue);
+        Brush brush = new SolidColorBrush(Color);
         //Brush brush2 = new SolidColorBrush(color);
         Pen pen = new Pen(Brushes.Teal, lineCap: PenLineCap.Square);
 

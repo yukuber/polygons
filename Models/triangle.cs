@@ -1,9 +1,8 @@
 ﻿using Avalonia.Media;
 using System;
 using Avalonia;
-using Avalonia.Controls.Shapes;
 
-namespace polygons.Models;
+namespace Polygons.Models;
 
 public class Triangle(int x, int y) : Shape(x, y)
 {
@@ -13,7 +12,7 @@ public class Triangle(int x, int y) : Shape(x, y)
 
     public override void Draw(DrawingContext dc)
     {
-        Brush brush = new SolidColorBrush(Colors.Fuchsia);
+        Brush brush = new SolidColorBrush(Color);
         Pen pen = new Pen(brush, lineCap: PenLineCap.Square);
 
         _tpoint1 = new Point(x, y - Radius);

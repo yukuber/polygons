@@ -1,7 +1,7 @@
 ﻿using Avalonia;
 using System;
 
-namespace polygons;
+namespace Polygons;
 
 sealed class Program
 {

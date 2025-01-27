@@ -1,7 +1,7 @@
 using Avalonia.Controls;
 using Avalonia.Input;
 
-namespace polygons.Views;
+namespace Polygons.Views;
 
 public partial class MainWindow : Window
 {

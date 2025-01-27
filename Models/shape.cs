@@ -4,7 +4,7 @@ using Avalonia.Controls;
 using Avalonia.Controls.Shapes;
 using Avalonia.Media;
 
-namespace polygons.Models;
+namespace Polygons.Models;
 
 public abstract class Shape //не sealed тк через него можно объявлять экземпляры, не нельзя наследовать
 //тк shape - статический конструктор, у него нет параметров
@@ -12,12 +12,13 @@ public abstract class Shape //не sealed тк через него можно о
     protected int x;
     protected int y;
     protected static readonly int Radius;
-    protected Color Color;
+    protected static Color Color;
     public bool IsMoving {get; set;}
     public abstract bool IsInside(int nx, int ny);
     static Shape()
     {
         Radius = 30;
+        Color = Colors.Aquamarine;
     }
 
     protected Shape(int x, int y)
